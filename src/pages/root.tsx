@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { Grid } from '@material-ui/core';
+// tslint:disable-next-line:ordered-imports
+import { Grid, CircularProgress } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 // tslint:disable-next-line:ordered-imports
 import { withStyles, StyleRulesCallback } from '@material-ui/core/styles';
@@ -14,6 +15,13 @@ import { House } from '../models/house';
 
 const styles: StyleRulesCallback<'root'> = theme => ({
 
+  flex: {
+    flex: 1,
+  },
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
@@ -24,10 +32,12 @@ const styles: StyleRulesCallback<'root'> = theme => ({
     flexGrow: 1,
     textAlign: 'center',
   },
+
 });
 
 export interface IState {
   selectedHouse?: House;
+  loading: boolean;
 
 }
 
@@ -38,31 +48,39 @@ export class Root extends React.Component<any, IState> {
   constructor(props: any, state: IState) {
     super(props, state);
     this.state = {
-      selectedHouse: undefined
+      loading: false,
+      selectedHouse: undefined,
     }
   }
 
   public render() {
     const { classes } = this.props;
-    const { selectedHouse } = this.state;
+    const { selectedHouse, loading } = this.state;
     return (
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Toolbar>
-            <Typography variant="title" color="inherit">
+            <Typography variant="title" color="inherit" className={classes.flex}>
               Game of Thrones Character Explorer
           </Typography>
+            <div>
+              {loading &&
+                <CircularProgress />
+              }
+            </div>
           </Toolbar>
         </AppBar>
+        <br/>
         <Grid container={true} spacing={24}>
           <Grid item={true} xs={6}>
-            
-            <HouseList 
-            // tslint:disable-next-line:jsx-no-lambda
-            onSelectHouse={(house)=> this.setState({selectedHouse: house})} />
+            <HouseList
+              // tslint:disable-next-line:jsx-no-lambda
+              onLoading={(load) => this.setState({ loading: load })}
+              // tslint:disable-next-line:jsx-no-lambda
+              onSelectHouse={(house) => this.setState({ selectedHouse: house })} />
           </Grid>
           <Grid item={true} xs={6}>
-            <HouseCard house={selectedHouse}/>
+            <HouseCard house={selectedHouse} />
           </Grid>
         </Grid>
 

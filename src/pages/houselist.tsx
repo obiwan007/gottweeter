@@ -2,7 +2,7 @@ import { withStyles, WithTheme } from '@material-ui/core/styles';
 
 import * as React from 'react';
 
-import { CircularProgress, Paper, TablePagination } from '@material-ui/core';
+import { Paper, TablePagination } from '@material-ui/core';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -21,6 +21,7 @@ const styles = {
 
 // tslint:disable-next-line:no-empty-interface
 export interface IProps {
+  onLoading?: (loading: boolean) => void
   // tslint:disable-next-line:no-unused-expression
   onSelectHouse?: (house: House | undefined) => void
 }
@@ -49,7 +50,9 @@ export class HouseList extends React.Component<IPropTypes, IState> {
 
   public loadPage = (page: number) => {
     this.setState({ loading: true });
+    if (this.props.onLoading) { this.props.onLoading(true); }
     GotApi.getHouses(page).then(houses => {
+      if (this.props.onLoading) { this.props.onLoading(false); }
       this.setState({ houses, loading: false });
     });
   }
@@ -85,14 +88,10 @@ export class HouseList extends React.Component<IPropTypes, IState> {
     const { classes } = this.props;
     const { selected, houses, loading, rowsPerPage, page } = this.state;
     // tslint:disable-next-line:no-console
-    console.log('Selected:', selected);
+    console.log('Selected:', selected, loading);
 
     return (
       <Paper className={classes.root}>
-        {loading &&
-          <CircularProgress />
-        }
-
         <Table>
           <TableHead>
             <TableRow>
