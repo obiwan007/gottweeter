@@ -61,7 +61,7 @@ export class CharacterList extends React.Component<IPropTypes, IState> {
   public handleChangePage = (event: any, page: number) => {
     this.setState({ page });
     this.loadPage(page);
-  };
+  }
 
   public handleChangeRowsPerPage = (event: any) => {
     const rowsPerPage = event.target.value;
@@ -73,7 +73,7 @@ export class CharacterList extends React.Component<IPropTypes, IState> {
 
     this.setState({ rowsPerPage, page });
     this.loadPage(page);
-  };
+  }
 
 
   public render() {

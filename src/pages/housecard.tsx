@@ -34,7 +34,7 @@ const styles = (theme: any) => ({
         marginBottom: 16,
     },
 
-})
+});
 
 // tslint:disable-next-line:no-empty-interface
 export interface IProps {

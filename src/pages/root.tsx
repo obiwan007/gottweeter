@@ -50,7 +50,7 @@ export class Root extends React.Component<any, IState> {
     this.state = {
       loading: false,
       selectedHouse: undefined,
-    }
+    };
   }
 
   public render() {

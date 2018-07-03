@@ -10,14 +10,14 @@ import { House } from '../models/house';
 
 describe("HouseList", () => {
   beforeEach(() => {
-    fetch.resetMocks()
-  })
+    fetch.resetMocks();
+  });
 
   it("HouseList renders correctly", () => {
     const h1 = new House();
     h1.name='My House';
     h1.url='Theurl';
-    fetch.mockResponseOnce(JSON.stringify({ data: [h1] }))
+    fetch.mockResponseOnce(JSON.stringify({ data: [h1] }));
     const component = shallow(
       <HouseList
       />,

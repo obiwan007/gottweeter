@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { ShallowRenderer } from 'react-test-renderer/shallow'; // ES6
-
 import { shallow } from 'enzyme';
 
 import HouseCard from "./housecard";

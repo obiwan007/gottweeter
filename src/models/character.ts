@@ -16,7 +16,7 @@ export class Character {
   // TThe titles that this character holds.
   public aliases: string[];
   // The aliases that this character goes by.
-  public father: string
+  public father: string;
   // The character resource URL of this character's father.
   public mother: string;
   // The character resource URL of this character's mother.

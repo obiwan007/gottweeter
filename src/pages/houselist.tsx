@@ -21,9 +21,9 @@ const styles = {
 
 // tslint:disable-next-line:no-empty-interface
 export interface IProps {
-    onLoading?: (loading: boolean) => void
+    onLoading?: (loading: boolean) => void;
     // tslint:disable-next-line:no-unused-expression
-    onSelectHouse?: (house: House | undefined) => void
+    onSelectHouse?: (house: House | undefined) => void;
 }
 export type IPropTypes = IProps & Partial<WithTheme> & { classes: Record<"root", string>; };
 
@@ -129,19 +129,18 @@ export class HouseList extends React.Component<IPropTypes, IState> {
     private handleChangePage = (event: any, page: number) => {
         this.setState({ page });
         this.loadPage(page);
-    };
+    }
 
     private handleChangeRowsPerPage = (event: any) => {
         const rowsPerPage = event.target.value;
 
         const oldPosition = this.state.page * this.state.rowsPerPage;
-        // tslint:disable-next-line:no-console
         console.log('OldPos', oldPosition);
         const page = Math.round(oldPosition / rowsPerPage);
 
         this.setState({ rowsPerPage, page });
         this.loadPage(page);
-    };
+    }
 
 }
 

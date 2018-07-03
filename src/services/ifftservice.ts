@@ -1,4 +1,4 @@
-import 'whatwg-fetch'
+import 'whatwg-fetch';
 
 import { House } from "../models/house";
 
@@ -10,7 +10,7 @@ export class IfftApi {
 
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
                 method: "POST",
                 mode: 'no-cors',
