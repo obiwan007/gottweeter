@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 import { House } from "../models/house";
 
 export class IfftApi {

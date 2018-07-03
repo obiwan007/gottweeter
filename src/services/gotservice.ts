@@ -1,3 +1,5 @@
+import 'whatwg-fetch'
+
 import { Character } from "../models/character";
 import { House } from "../models/house";
 
