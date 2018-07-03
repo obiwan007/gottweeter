@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-// tslint:disable-next-line:ordered-imports
-import { Grid, CircularProgress } from '@material-ui/core';
+
+import { CircularProgress, Grid } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
-// tslint:disable-next-line:ordered-imports
-import { withStyles, StyleRulesCallback } from '@material-ui/core/styles';
+
+import { StyleRulesCallback, withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
@@ -24,8 +24,7 @@ const styles: StyleRulesCallback<'root'> = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    // tslint:disable-next-line:object-literal-sort-keys
+    textAlign: 'center',    
     color: theme.palette.text.secondary,
   },
   root: {
@@ -70,17 +69,19 @@ export class Root extends React.Component<any, IState> {
             </div>
           </Toolbar>
         </AppBar>
-        <br/>
+        <br />
         <Grid container={true} spacing={24}>
           <Grid item={true} xs={6}>
-            <HouseList
-              // tslint:disable-next-line:jsx-no-lambda
-              onLoading={(load) => this.setState({ loading: load })}
-              // tslint:disable-next-line:jsx-no-lambda
-              onSelectHouse={(house) => this.setState({ selectedHouse: house })} />
+            <div className={classes.paper}>
+              <HouseList
+                onLoading={(load) => this.setState({ loading: load })}
+                onSelectHouse={(house) => this.setState({ selectedHouse: house })} />
+            </div>
           </Grid>
           <Grid item={true} xs={6}>
-            <HouseCard house={selectedHouse} />
+            <div className={classes.paper}>
+              <HouseCard house={selectedHouse} />
+            </div>
           </Grid>
         </Grid>
 
