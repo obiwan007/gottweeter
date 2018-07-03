@@ -27,6 +27,7 @@
     "@types/react-test-renderer": "^16.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "jest-fetch-mock": "^1.6.5",
     "react-test-renderer": "^16.4.1",
     "typescript": "^2.9.2"
   }

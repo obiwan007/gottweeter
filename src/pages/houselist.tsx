@@ -45,14 +45,14 @@ export class HouseList extends React.Component<IPropTypes, IState> {
         this.state = { houses: [], selected: '', page: 1, rowsPerPage: 10, loading: false };
     }
     public componentDidMount() {
+        // tslint:disable-next-line:no-console
+        console.log('Component Mount');
         this.loadPage(this.state.page);
     }
 
     public render() {
         const { classes } = this.props;
-        const { selected, houses, loading, rowsPerPage, page } = this.state;
-        // tslint:disable-next-line:no-console
-        console.log('Selected:', selected, loading);
+        const { houses, rowsPerPage, page } = this.state;
 
         return (
             <Paper className={classes.root}>
@@ -62,9 +62,6 @@ export class HouseList extends React.Component<IPropTypes, IState> {
                             <TableCell>House</TableCell>
                             <TableCell>Founded in</TableCell>
                         </TableRow>
-
-
-
                     </TableHead>
                     <TableBody>
                         {houses!.map((n) => {
