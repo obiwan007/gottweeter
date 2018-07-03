@@ -21,8 +21,6 @@ export class GotApi {
    * @memberof GotApi
    */
   public getCharacters(page: number, pageSize: number = 10): Promise<Character[]> {
-    // tslint:disable-next-line:no-console
-    console.log('Retrieve chars');
     return fetch(`https://www.anapioficeandfire.com/api/characters?page=${page}&pageSize=${pageSize}`)
       .then(GotApi.parseJSON)
       .then((response) => {
@@ -39,8 +37,6 @@ export class GotApi {
    * @memberof GotApi
    */
   public getHouses(page: number, pageSize: number = 10): Promise<House[]> {
-    // tslint:disable-next-line:no-console
-    console.log('Retrieve Houses');
     return fetch(`https://www.anapioficeandfire.com/api/houses?page=${page}&pageSize=${pageSize}`)
       .then(GotApi.parseJSON)
       .then((response) => {

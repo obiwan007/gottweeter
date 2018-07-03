@@ -39,7 +39,9 @@ export interface IState {
   loading: boolean;
 
 }
-
+/**
+ * Main Component of the app to show a grid for List of Houses with House Details
+ */
 export class Root extends React.Component<any, IState> {
   /**
    *
@@ -60,7 +62,7 @@ export class Root extends React.Component<any, IState> {
         <AppBar position="static" color="default">
           <Toolbar>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Game of Thrones Character Explorer
+              Game of Thrones House Tweeter
           </Typography>
             <div>
               {loading &&

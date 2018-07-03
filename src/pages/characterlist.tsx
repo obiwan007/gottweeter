@@ -32,7 +32,9 @@ export interface IState {
   rowsPerPage: number;
   loading: boolean;
 }
-
+/**
+ * CharactedList component. Shows a pagable list of characters
+ */
 export class CharacterList extends React.Component<IPropTypes, IState> {
   /**
    *
@@ -45,42 +47,9 @@ export class CharacterList extends React.Component<IPropTypes, IState> {
     this.loadPage(this.state.page);
   }
 
-  public loadPage = (page: number) => {
-    this.setState({ loading: true });
-    GotApi.getCharacters(page).then(characters => {
-      this.setState({ characters, loading: false });
-    });
-  }
-
-  public isSelected = (id: string) => this.state.selected === id;
-
-  public handleClick = (event: any, id: string) => {
-    this.setState({ selected: id });
-  }
-
-  public handleChangePage = (event: any, page: number) => {
-    this.setState({ page });
-    this.loadPage(page);
-  }
-
-  public handleChangeRowsPerPage = (event: any) => {
-    const rowsPerPage = event.target.value;
-
-    const oldPosition = this.state.page * this.state.rowsPerPage;
-    // tslint:disable-next-line:no-console
-    console.log('OldPos', oldPosition);
-    const page = Math.round(oldPosition / rowsPerPage);
-
-    this.setState({ rowsPerPage, page });
-    this.loadPage(page);
-  }
-
-
   public render() {
     const { classes } = this.props;
-    const { selected, characters, loading, rowsPerPage, page } = this.state;
-    // tslint:disable-next-line:no-console
-    console.log('Selected:', selected);
+    const { characters, loading, rowsPerPage, page } = this.state;
 
     return (
       <Paper className={classes.root}>
@@ -99,7 +68,6 @@ export class CharacterList extends React.Component<IPropTypes, IState> {
               const isSelected = this.isSelected(n.url);
               return (
                 <TableRow
-                  // tslint:disable-next-line:jsx-no-lambda
                   onClick={event => this.handleClick(event, n.url)}
                   key={n.url}
                   selected={isSelected}
@@ -131,7 +99,33 @@ export class CharacterList extends React.Component<IPropTypes, IState> {
     );
   }
 
+  private loadPage = (page: number) => {
+    this.setState({ loading: true });
+    GotApi.getCharacters(page).then(characters => {
+      this.setState({ characters, loading: false });
+    });
+  }
 
+  private isSelected = (id: string) => this.state.selected === id;
+
+  private handleClick = (event: any, id: string) => {
+    this.setState({ selected: id });
+  }
+
+  private handleChangePage = (event: any, page: number) => {
+    this.setState({ page });
+    this.loadPage(page);
+  }
+
+  private handleChangeRowsPerPage = (event: any) => {
+    const rowsPerPage = event.target.value;
+
+    const oldPosition = this.state.page * this.state.rowsPerPage;
+    const page = Math.round(oldPosition / rowsPerPage);
+
+    this.setState({ rowsPerPage, page });
+    this.loadPage(page);
+  }
 
 }
 

@@ -19,10 +19,8 @@ const styles = {
     },
 };
 
-// tslint:disable-next-line:no-empty-interface
 export interface IProps {
     onLoading?: (loading: boolean) => void;
-    // tslint:disable-next-line:no-unused-expression
     onSelectHouse?: (house: House | undefined) => void;
 }
 export type IPropTypes = IProps & Partial<WithTheme> & { classes: Record<"root", string>; };
@@ -35,7 +33,9 @@ export interface IState {
     rowsPerPage: number;
     loading: boolean;
 }
-
+/**
+ * List of houses component. Pagable List retrieving Houses from backend API
+ */
 export class HouseList extends React.Component<IPropTypes, IState> {
     /**
      *
@@ -45,8 +45,6 @@ export class HouseList extends React.Component<IPropTypes, IState> {
         this.state = { houses: [], selected: '', page: 1, rowsPerPage: 10, loading: false };
     }
     public componentDidMount() {
-        // tslint:disable-next-line:no-console
-        console.log('Component Mount');
         this.loadPage(this.state.page);
     }
 
@@ -68,7 +66,6 @@ export class HouseList extends React.Component<IPropTypes, IState> {
                             const isSelected = this.isSelected(n.url);
                             return (
                                 <TableRow
-                                    // tslint:disable-next-line:jsx-no-lambda
                                     onClick={event => this.handleClick(event, n.url)}
                                     key={n.url}
                                     selected={isSelected}

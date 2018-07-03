@@ -36,9 +36,7 @@ const styles = (theme: any) => ({
 
 });
 
-// tslint:disable-next-line:no-empty-interface
 export interface IProps {
-    // tslint:disable-next-line:no-unused-expression
     house?: House;
 }
 export type IPropTypes = IProps & Partial<WithTheme> &
@@ -54,7 +52,10 @@ export type IPropTypes = IProps & Partial<WithTheme> &
 export interface IState {
     loading: boolean;
 }
-
+/**
+ * Component to show a give House as a Material Card
+ * Button to push a request to ifft.
+ */
 export class HouseCard extends React.Component<IPropTypes, IState> {
     /**
      *
@@ -67,7 +68,6 @@ export class HouseCard extends React.Component<IPropTypes, IState> {
     public render() {
         const { classes, house } = this.props;
         const { loading } = this.state;
-        // tslint:disable-next-line:no-console
         return (
             <Paper className={classes.root}>
                 {house &&
@@ -90,7 +90,6 @@ export class HouseCard extends React.Component<IPropTypes, IState> {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                // tslint:disable-next-line:jsx-no-lambda
                                 onClick={() => this.handleTweet()}
                                 disabled={loading}
                                 size="small">
@@ -112,12 +111,10 @@ export class HouseCard extends React.Component<IPropTypes, IState> {
         IfftApi.sendHouseTweet(this.props.house!).then(() => {
             setTimeout(() => {
                 this.setState({ loading: false });
-            }, 1000);
+            }, 1000);   // delay a bit to see the spinning and assure the user that he suscessfully clicked the tweet button
 
         });
     }
-
-
 }
 
 export default withStyles(styles)(HouseCard);
