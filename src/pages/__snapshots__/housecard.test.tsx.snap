@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HouseCard HouseCard renders correctly if empty 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WithStyles(HouseCard) />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "classes": Object {
+        "bullet": "HouseCard-bullet-1",
+        "card": "HouseCard-card-2",
+        "icon": "HouseCard-icon-3",
+        "pos": "HouseCard-pos-4",
+        "progress": "HouseCard-progress-5",
+        "root": "HouseCard-root-6",
+        "title": "HouseCard-title-7",
+      },
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "classes": Object {
+          "bullet": "HouseCard-bullet-1",
+          "card": "HouseCard-card-2",
+          "icon": "HouseCard-icon-3",
+          "pos": "HouseCard-pos-4",
+          "progress": "HouseCard-progress-5",
+          "root": "HouseCard-root-6",
+          "title": "HouseCard-title-7",
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": false,
+  },
+}
+`;
+
+exports[`HouseCard HouseCard renders correctly with House 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <WithStyles(HouseCard)
+    house={
+      House {
+        "name": "My House",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "classes": Object {
+        "bullet": "HouseCard-bullet-1",
+        "card": "HouseCard-card-2",
+        "icon": "HouseCard-icon-3",
+        "pos": "HouseCard-pos-4",
+        "progress": "HouseCard-progress-5",
+        "root": "HouseCard-root-6",
+        "title": "HouseCard-title-7",
+      },
+      "house": House {
+        "name": "My House",
+      },
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "classes": Object {
+          "bullet": "HouseCard-bullet-1",
+          "card": "HouseCard-card-2",
+          "icon": "HouseCard-icon-3",
+          "pos": "HouseCard-pos-4",
+          "progress": "HouseCard-progress-5",
+          "root": "HouseCard-root-6",
+          "title": "HouseCard-title-7",
+        },
+        "house": House {
+          "name": "My House",
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": false,
+  },
+}
+`;
